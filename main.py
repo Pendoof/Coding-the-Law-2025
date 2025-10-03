@@ -19,8 +19,7 @@ def main():
         limit_start = limits["Time (minutes)"].iloc[time_index]
         speed_limit = limits[" Speed Limit (MPH)"].iloc[time_index]
 
-        # update newest speed limit based on current time
-        if time > limit_start and time_index < len(limits) - 1:
+        while time_index < len(limits) - 1 and time > limits["Time (minutes)"].iloc[time_index + 1]:
             time_index += 1
 
         # change speed tolerance based on speed limit
